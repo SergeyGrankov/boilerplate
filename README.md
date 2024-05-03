@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+# Архитектура
+
+## Слой
+\__ src/
+    |__ app/        # Иниц. логика приложения (энтрипоинт прим: "провайдер, страницы, роутеры, глобальные стили, конфигурация, роутеры")
+    |__ blocks/     # Самостоятельные и полноценные блоки для страниц
+    |__ features/   # (Опц.) Обрабатываемые польз. сценарии (прим: "подписка на пользователя, лайк, дизлайк, шейр, смена языка...")
+    |__ entities/   # (Опц.) Бизнес-сущности, которыми оперирует предметная область (прим: "товар, заказ, корзина, комментарий...")
+    |__ shared/     # Переиспользуемые модули, без привязки к бизнес-логике (максимально переиспользуемые модули)
+
+## Сегменты
+1) UI - наши компоненты
+2) model - бизнес логика (взаимодействие со стейтом, селекторы, экшены и тд. ...)
+3) lib - это все хелперы (какие-то вспомогательные функции, которые могут использоваться внутри модуля, прим: "хуки, getFullName...")
+4) config - конфигурация для модуля (используется редко)
+5) api - запросы для серверс
+6) consts - константы
