@@ -11,7 +11,7 @@ export default function Counter() {
     <>
       <button onClick={() => dispatch(decrement())}>Декремент</button>
       {count}
-      <button onClick={() => dispatch(increment())}>Искремент</button>
+      <button onClick={() => dispatch(increment())}>Инкремент</button>
     </>
   );
 }
